@@ -1,0 +1,20 @@
+{
+  "name": "hubot-wmata-slack",
+  "version": "0.0.1",
+  "author": "Daniel Paz-Soldan <daniel.pazsoldan@gmail.com>",
+  "description": "Posts WMATA metro disruptions to Slack.",
+  "dependencies": {
+    "coffee-script": "~1.6",
+    "node-schedule": "0.2.9"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/danpaz/hubot-wmata-slack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/danpaz/hubot-wmata-slack/issues"
+  }
+}
