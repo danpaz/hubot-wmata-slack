@@ -16,5 +16,11 @@
   },
   "bugs": {
     "url": "https://github.com/danpaz/hubot-wmata-slack/issues"
+  },
+  "devDependencies": {
+    "coffeelint": "1.11.1"
+  },
+  "scripts": {
+    "test": "coffeelint -f dev/coffeelint.json ./src"
   }
 }
