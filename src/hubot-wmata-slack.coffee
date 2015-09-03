@@ -108,5 +108,5 @@ module.exports = (robot) ->
 
   robot.respond /wmata$/i, (msg) ->
     _reportIncidents (err, incidents) ->
-      unless incidents?
+      unless incidents?.length > 0
         msg.send 'WMATA returned no train disruptions.'
