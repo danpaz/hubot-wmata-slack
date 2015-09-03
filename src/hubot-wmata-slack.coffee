@@ -1,5 +1,5 @@
 # Description:
-#   Posts WMATA metro disruptions to Slack.
+#   Posts WMATA metro train disruptions to Slack.
 #
 # Dependencies:
 #   node-schedule
@@ -8,7 +8,7 @@
 #   HUBOT_WMATA_KEY - API key.
 #
 # Commands:
-#   hubot wmata - View current WMATA incidents.
+#   hubot wmata - View current WMATA train incidents.
 #
 schedule = require 'node-schedule'
 
@@ -67,9 +67,9 @@ module.exports = (robot) ->
 
         cb err, data
 
-  _reportIncidents = ->
+  _reportIncidents = (cb) ->
     _request (err, data) ->
-      return if err?
+      return cb(err, null) if err?
 
       data?.Incidents?.map (incident) ->
 
@@ -100,8 +100,13 @@ module.exports = (robot) ->
             fallback: fallback
             fields:   fields
 
+      return cb(null, data.Incidents)
+
   schedule.scheduleJob recurrence, () ->
-    _reportIncidents()
+    _reportIncidents (err, incidents) ->
+      # noop
 
   robot.respond /wmata$/i, (msg) ->
-    _reportIncidents()
+    _reportIncidents (err, incidents) ->
+      unless incidents?
+        msg.send 'WMATA returned no train disruptions.'
