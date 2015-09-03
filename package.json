@@ -1,6 +1,6 @@
 {
   "name": "hubot-wmata-slack",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "Daniel Paz-Soldan <daniel.pazsoldan@gmail.com>",
   "description": "Posts WMATA metro disruptions to Slack.",
   "dependencies": {
